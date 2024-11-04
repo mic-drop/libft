@@ -376,7 +376,7 @@
 
 } */
 
-void test_ft_memcmp(void)
+/* void test_ft_memcmp(void)
 {
 	char str1[15];
 	char str2[15];
@@ -426,6 +426,20 @@ void test_ft_memcmp(void)
 
 
 
+} */
+
+void	test_ft_memmove(void)
+{
+	char test_dest_str[] = "oldstring";
+	char result_dest_str[] = "oldstring";
+	const char src_str[]  = "newstring";
+
+	//Sunshine
+	memmove(test_dest_str, src_str, 1);
+	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
+
+	ft_memmove(result_dest_str, src_str, 1);
+	printf("Test\t should output |nldstring|: %s\n", result_dest_str);
 }
 
 int	main(void)
@@ -447,6 +461,7 @@ int	main(void)
 	//test_ft_memchr();
 	//test_ft_memcpy();
 	//test_ft_memcmp();
+	test_ft_memmove();
 
 	return (0);
 }
