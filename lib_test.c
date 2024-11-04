@@ -440,6 +440,15 @@ void	test_ft_memmove(void)
 
 	ft_memmove(result_dest_str, src_str, 1);
 	printf("Test\t should output |nldstring|: %s\n", result_dest_str);
+
+	//N bigger than source
+	char *bad_src = "alo";
+	char *test_bad_dest = "ola";
+	char *result_bad_dest = "ola";
+
+	memmove(test_bad_dest, bad_src, 20);
+	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
+
 }
 
 int	main(void)
