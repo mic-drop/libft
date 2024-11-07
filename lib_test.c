@@ -503,8 +503,22 @@ void	test_ft_strlcat(void)
 {
 	//Sunshine
 	char s1[] = "ola";
-	char s2[10] = "adeus";
-	printf("Test \t output:%lu string:%s\n", strlcat(s2, s1, 9), s2);
+	char dest[10] = "adeus";
+	printf("Test \t output should be 8 : %lu\n\tstring should be |adeusola| : |%s|\n", strlcat(dest, s1, 9), dest);
+	
+	char result_s1[] = "ola";
+	char result_dest[10] = "adeus";
+	printf("Result \t output should be 8 : %lu\n\tstring should be |adeusola| : |%s|\n", ft_strlcat(result_dest, result_s1, 9), result_dest);
+
+	//If dest size is smaller than full concatenation
+	char dest2[10] = "ananas";
+	char big_src[] = "banana";
+
+	printf("Test \t output should be 12 : %lu\n\tstring should be |ananas| : |%s|\n", strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
+	printf("Result \t output should be 12 : %lu\n\tstring should be |ananas| : |%s|\n", ft_strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
+	ft_strlcat(dest2, big_src, 10);
+
+
 }
 
 int	main(void)
