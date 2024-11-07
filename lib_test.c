@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <string.h>
 
+
+
 /* void	test_ft_isalpha(void)
 {
 	//Testing sunshine
@@ -478,7 +480,7 @@
 
 } */
 
-void	test_ft_strnstr(void){
+/* void	test_ft_strnstr(void){
 	char str[] = "bananai";
 	char find[] = "nan";
 
@@ -495,6 +497,14 @@ void	test_ft_strnstr(void){
 	//Empty String
 	printf("Test\t output:%s\n", strnstr(str, "", 10));
 	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
+} */
+
+void	test_ft_strlcat(void)
+{
+	//Sunshine
+	char s1[] = "ola";
+	char s2[10] = "adeus";
+	printf("Test \t output:%lu string:%s\n", strlcat(s2, s1, 9), s2);
 }
 
 int	main(void)
@@ -518,7 +528,8 @@ int	main(void)
 	//test_ft_memcmp();
 	//test_ft_memmove();
 	//test_ft_strlcpy();
-	test_ft_strnstr();
+	//test_ft_strnstr();
+	test_ft_strlcat();
 
 	return (0);
 }
