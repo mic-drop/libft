@@ -451,14 +451,13 @@
 
 } */
 
-void test_ft_strlcpy(void){
+/* void test_ft_strlcpy(void){
 
 	int test;
 	int result;
 
 
 	//Sunshine
-	
 	char src[] = "Banana";
 	char dest[] = "Morango";
 	char dest_result[] = "Morango";
@@ -468,15 +467,23 @@ void test_ft_strlcpy(void){
 	printf("Test\t return %d with dest %s\n", test, dest);
 	printf("Result\t return %d with dest %s\n", result, dest_result);
 	
-	
-/* 	char src[] = "Banana";
+	char src[] = "Banana";
 	char dest[] = "Ola";
 	char dest_result[] = "Ola";
 	test =	strlcpy(dest, src, 4);
 	result = ft_strlcpy(dest_result, src, 4);
 
 	printf("Test\t return %d with dest %s\n", test, dest);
-	printf("Result\t return %d with dest %s\n", result, dest_result); */
+	printf("Result\t return %d with dest %s\n", result, dest_result);
+
+} */
+
+void	test_ft_strnstr(void){
+	char str[] = "bananaiiiiiiii";
+	char find[] = "nan";
+
+	printf("Test\t output:%s\n", strnstr(str, find, 10));
+	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
 
 }
 
@@ -500,7 +507,8 @@ int	main(void)
 	//test_ft_memcpy();
 	//test_ft_memcmp();
 	//test_ft_memmove();
-	test_ft_strlcpy();
+	//test_ft_strlcpy();
+	test_ft_strnstr();
 
 	return (0);
 }
