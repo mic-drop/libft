@@ -479,12 +479,22 @@
 } */
 
 void	test_ft_strnstr(void){
-	char str[] = "bananaiiiiiiii";
+	char str[] = "bananai";
 	char find[] = "nan";
 
+	//Sunshine
 	printf("Test\t output:%s\n", strnstr(str, find, 10));
 	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
 
+	//Not found
+	char notfound[] = "coco";
+
+	printf("Test\t output:%s\n", strnstr(str, notfound, 10));
+	printf("Result\t output:%s\n", ft_strnstr(str, notfound, 10));
+
+	//Empty String
+	printf("Test\t output:%s\n", strnstr(str, "", 10));
+	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
 }
 
 int	main(void)
