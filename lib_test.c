@@ -428,7 +428,7 @@
 
 } */
 
-void	test_ft_memmove(void)
+/* void	test_ft_memmove(void)
 {
 	char test_dest_str[] = "oldstring";
 	char result_dest_str[] = "oldstring";
@@ -448,6 +448,35 @@ void	test_ft_memmove(void)
 
 	memmove(test_bad_dest, bad_src, 20);
 	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
+
+} */
+
+void test_ft_strlcpy(void){
+
+	int test;
+	int result;
+
+
+	//Sunshine
+	
+	char src[] = "Banana";
+	char dest[] = "Morango";
+	char dest_result[] = "Morango";
+	test =	strlcpy(dest, src, 7);
+	result = ft_strlcpy(dest_result, src, 7);
+
+	printf("Test\t return %d with dest %s\n", test, dest);
+	printf("Result\t return %d with dest %s\n", result, dest_result);
+	
+	
+/* 	char src[] = "Banana";
+	char dest[] = "Ola";
+	char dest_result[] = "Ola";
+	test =	strlcpy(dest, src, 4);
+	result = ft_strlcpy(dest_result, src, 4);
+
+	printf("Test\t return %d with dest %s\n", test, dest);
+	printf("Result\t return %d with dest %s\n", result, dest_result); */
 
 }
 
@@ -470,7 +499,8 @@ int	main(void)
 	//test_ft_memchr();
 	//test_ft_memcpy();
 	//test_ft_memcmp();
-	test_ft_memmove();
+	//test_ft_memmove();
+	test_ft_strlcpy();
 
 	return (0);
 }
