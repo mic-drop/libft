@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 
@@ -499,7 +500,7 @@
 	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
 } */
 
-void	test_ft_strlcat(void)
+/* void	test_ft_strlcat(void)
 {
 	//Sunshine
 	char s1[] = "ola";
@@ -518,6 +519,95 @@ void	test_ft_strlcat(void)
 	printf("Result \t output should be 12 : %lu\n\tstring should be |ananas| : |%s|\n", ft_strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
 	ft_strlcat(dest2, big_src, 10);
 
+} */
+
+void	test_ft_atoi(void)
+{
+	//Sunshine
+	char test_str[] = "2147483647";
+	int test;
+	int result;
+
+	test = atoi(test_str);
+	result = ft_atoi(test_str);
+	printf("Test\t should be 2147483647 : %d\n", test);
+	printf("Result\t should be 2147483647 : %d\n", result);
+
+	//Plus
+	char plus[] = "+777";
+	
+	test = atoi(plus);
+	result = ft_atoi(plus);
+	printf("Test\t should be 777 : %d\n", test);
+	printf("Result\t should be 777 : %d\n", result);
+
+	//Double negative
+	char doublenegativestr[] = "--1";
+
+	test = atoi(doublenegativestr);
+	result = ft_atoi(doublenegativestr);
+	printf("Test\t should be 0 : %d\n", test);
+	printf("Result\t should be 0 : %d\n", result);
+
+	// One negative
+	char negative[] = "-12345";
+
+	test = atoi(negative);
+	result = ft_atoi(negative);
+	printf("Test\t should be -12345 : %d\n", test);
+	printf("Result\t should be -12345 : %d\n", result);
+
+	//Plus Minus
+	char plus_minus[] = "+-12345";
+
+	test = atoi(plus_minus);
+	result = ft_atoi(plus_minus);
+	printf("Test\t should be 0 : %d\n", test);
+	printf("Result\t should be 0 : %d\n", result);
+
+	//Lots of spaces
+	char spaces[] = "   1";
+
+	test = atoi(spaces);
+	result= ft_atoi(spaces);
+	printf("Test\t should be 1 : %d\n", test);
+	printf("Result\t should be 1 : %d\n", result);
+
+	//With nont allowed chars
+	char not_allowed[] = " !a";
+	test = atoi(not_allowed);
+	result= ft_atoi(not_allowed);
+	printf("Test\t should be 0 : %d\n", test);
+	printf("Result\t should be 0 : %d\n", result);
+
+	//Biggest negative int
+	char big_negative[] = "–2147483648";
+	test = atoi(big_negative);
+	result= ft_atoi(big_negative);
+	printf("Test\t should be 0 : %d\n", test);
+	printf("Result\t should be 0 : %d\n", result);
+
+	//Biggest Positive int
+	char big_pos[] = "2147483648";
+	test = atoi(big_pos);
+	result= ft_atoi(big_pos);
+	printf("Test\t should be -2147483648 : %d\n", test);
+	printf("Result\t should be -2147483648 : %d\n", result);
+	
+	//Seccond biggest bneg int
+	char sec_neg[] = "-2147483647";
+	test = atoi(sec_neg);
+	result= ft_atoi(sec_neg);
+	printf("Test\t should be -2147483647 : %d\n", test);
+	printf("Result\t should be -2147483647 : %d\n", result);
+
+	//Split numbers
+	char split_numb[] = " 12a2";
+
+	test = atoi(split_numb);
+	result= ft_atoi(split_numb);
+	printf("Test\t should be 12 : %d\n", test);
+	printf("Result\t should be 12 : %d\n", result);
 
 }
 
@@ -543,7 +633,7 @@ int	main(void)
 	//test_ft_memmove();
 	//test_ft_strlcpy();
 	//test_ft_strnstr();
-	test_ft_strlcat();
-
+	//test_ft_strlcat();
+	test_ft_atoi();
 	return (0);
 }
