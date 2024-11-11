@@ -10,9 +10,8 @@ char *ft_strdup(const char *string)
     lenght = ft_strlen(string);
     i = 0;
     ptr = malloc(sizeof(char) * lenght + 1);
-    if(ptr = NULL)
-        return;
-
+    if(ptr == NULL)
+        return NULL;
     while(i < lenght)
     {
         ptr[i] = string[i];

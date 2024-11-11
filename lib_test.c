@@ -431,28 +431,35 @@
 
 } */
 
-/* void	test_ft_memmove(void)
+void	test_ft_memmove(void)
 {
 	char test_dest_str[] = "oldstring";
 	char result_dest_str[] = "oldstring";
 	const char src_str[]  = "newstring";
-
 	//Sunshine
 	memmove(test_dest_str, src_str, 1);
 	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
 
 	ft_memmove(result_dest_str, src_str, 1);
 	printf("Test\t should output |nldstring|: %s\n", result_dest_str);
-
+/* 
 	//N bigger than source
 	char *bad_src = "alo";
 	char *test_bad_dest = "ola";
 	char *result_bad_dest = "ola";
 
 	memmove(test_bad_dest, bad_src, 20);
-	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
+	printf("Test\t should output |nldstring|: %s\n", test_dest_str); */
 
-} */
+	//SHIT
+	char str[] = "Hello, World!";
+	char str_result[] = "Hello, World!"; 
+	memmove(str + 6, str, 6);
+	printf("%s\n", str);
+
+	ft_memmove(str_result + 6, str_result, 6);
+	printf("%s\n", str_result);
+}
 
 /* void test_ft_strlcpy(void){
 
@@ -521,7 +528,7 @@
 
 } */
 
-void	test_ft_atoi(void)
+/* void	test_ft_atoi(void)
 {
 	//Sunshine
 	char test_str[] = "2147483647";
@@ -609,7 +616,37 @@ void	test_ft_atoi(void)
 	printf("Test\t should be 12 : %d\n", test);
 	printf("Result\t should be 12 : %d\n", result);
 
-}
+} */
+
+/* void test_ft_strdup(void)
+{
+	// Sunshine
+	char str[4] = "Ola";
+
+	char *test;
+	char *control_test;
+	char *result;
+
+	test = strdup(str);
+	control_test = strdup(str);
+	result = ft_strdup(str);
+
+	printf("Str\t |%s| %p | %p\n", str, str, &str);
+	printf("Test\t |%s| %p | %p\n", test, test, &test);
+	printf("Control\t |%s| %p | %p\n", control_test, control_test,&control_test);
+	printf("Result\t |%s| %p | %p\n", result, result, &result);
+
+	//Empty string
+	char empty[] = "";
+
+	char *empty_test;
+	char *empty_result;
+	empty_test = strdup(empty);
+	empty_result = ft_strdup(empty);
+
+	printf("Test\t |%s|%p\n", empty_test, empty_test);
+	printf("Result\t |%s|%p\n", empty_result, empty_result);
+} */
 
 int	main(void)
 {
@@ -630,10 +667,11 @@ int	main(void)
 	//test_ft_memchr();
 	//test_ft_memcpy();
 	//test_ft_memcmp();
-	//test_ft_memmove();
+	test_ft_memmove();
 	//test_ft_strlcpy();
 	//test_ft_strnstr();
 	//test_ft_strlcat();
-	test_ft_atoi();
+	//test_ft_atoi();
+	//test_ft_strdup();
 	return (0);
 }

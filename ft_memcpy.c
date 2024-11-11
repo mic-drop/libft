@@ -10,10 +10,10 @@ void *ft_memcpy(void *dest_str, const void * src_str, size_t n)
     src_ptr = (char *)src_str;
     dest_ptr = (char *)dest_str;
 
-    while( i < n)
+    while(i < n)
     {
         dest_ptr[i] = src_ptr[i];
         i++;
     }
-    return dest_ptr;
+    return (dest_ptr);
 }
