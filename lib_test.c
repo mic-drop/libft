@@ -647,12 +647,19 @@
 	printf("Result\t |%s|%p\n", empty_result, empty_result);
 } */
 
-void test_ft_substr(void)
+/* void test_ft_substr(void)
 {
 	char str[] = "Submarine";
 	printf("%s\n", ft_substr(str, 0, 3));
 	printf("%s\n", ft_substr(str, 4, 3));
+} */
+
+
+void test_ft_join(void){
+	char *str = ft_strjoin("Banana", "morango");
+	printf("%s\n", str);
 }
+
 
 int	main(void)
 {
@@ -679,7 +686,8 @@ int	main(void)
 	//test_ft_strlcat();
 	//test_ft_atoi();
 	//test_ft_strdup();
-	test_ft_substr();
+	//test_ft_substr();
+	test_ft_join();
 
 
 	return (0);
