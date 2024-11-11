@@ -655,11 +655,15 @@
 } */
 
 
-void test_ft_join(void){
+/* void test_ft_join(void){
 	char *str = ft_strjoin("Banana", "morango");
 	printf("%s\n", str);
-}
+} */
 
+void test_ft_strtrim(void)
+{
+	printf("%s\n", ft_strtrim("12ola12", "12"));
+}
 
 int	main(void)
 {
@@ -687,8 +691,8 @@ int	main(void)
 	//test_ft_atoi();
 	//test_ft_strdup();
 	//test_ft_substr();
-	test_ft_join();
-
+	//test_ft_join();
+	test_ft_strtrim();
 
 	return (0);
 }

@@ -9,6 +9,8 @@ char *ft_strjoin(char const *s1, char const *s2){
     i = 0;
     final_size = (ft_strlen(s1) + ft_strlen(s2));
     new_str = malloc(final_size + 1);
+    if(new_str == NULL)
+        return NULL;
     while (*s1)
     {
         new_str[i] = *s1;
