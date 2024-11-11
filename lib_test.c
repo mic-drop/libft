@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 
-
 /* void	test_ft_isalpha(void)
 {
 	//Testing sunshine
@@ -431,7 +430,7 @@
 
 } */
 
-void	test_ft_memmove(void)
+/* void	test_ft_memmove(void)
 {
 	char test_dest_str[] = "oldstring";
 	char result_dest_str[] = "oldstring";
@@ -442,14 +441,14 @@ void	test_ft_memmove(void)
 
 	ft_memmove(result_dest_str, src_str, 1);
 	printf("Test\t should output |nldstring|: %s\n", result_dest_str);
-/* 
+
 	//N bigger than source
 	char *bad_src = "alo";
 	char *test_bad_dest = "ola";
 	char *result_bad_dest = "ola";
 
 	memmove(test_bad_dest, bad_src, 20);
-	printf("Test\t should output |nldstring|: %s\n", test_dest_str); */
+	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
 
 	//SHIT
 	char str[] = "Hello, World!";
@@ -459,7 +458,7 @@ void	test_ft_memmove(void)
 
 	ft_memmove(str_result + 6, str_result, 6);
 	printf("%s\n", str_result);
-}
+} */
 
 /* void test_ft_strlcpy(void){
 
@@ -648,6 +647,13 @@ void	test_ft_memmove(void)
 	printf("Result\t |%s|%p\n", empty_result, empty_result);
 } */
 
+void test_ft_substr(void)
+{
+	char str[] = "Submarine";
+	printf("%s\n", ft_substr(str, 0, 3));
+	printf("%s\n", ft_substr(str, 4, 3));
+}
+
 int	main(void)
 {
 
@@ -667,11 +673,14 @@ int	main(void)
 	//test_ft_memchr();
 	//test_ft_memcpy();
 	//test_ft_memcmp();
-	test_ft_memmove();
+	//test_ft_memmove();
 	//test_ft_strlcpy();
 	//test_ft_strnstr();
 	//test_ft_strlcat();
 	//test_ft_atoi();
 	//test_ft_strdup();
+	test_ft_substr();
+
+
 	return (0);
 }
