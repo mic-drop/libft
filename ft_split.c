@@ -9,7 +9,6 @@ char **ft_split(char const *s, char c)
     int str_count;
     int str_index;
     char **new_arr;
-    char *temp_str;
 
     i = 0;
     start = 0;
@@ -18,14 +17,13 @@ char **ft_split(char const *s, char c)
 
     while(s[i])
     {
-        if (s[i] == c && i > 0 && i < ft_strlen(s))
+        if (s[i] != c && (i == 0 || s[i - 1] == c))
             str_count++;
         i++;
     }
-    str_count++;
-    printf("This is count %d\n", str_count);
-    str_count++;
     new_arr = malloc((str_count + 1) * sizeof(char*));
+    if(new_arr == NULL)
+        return NULL;
     i = 0 ;
 
     while(s[i])

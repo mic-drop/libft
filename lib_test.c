@@ -667,14 +667,58 @@
 
 void	test_ft_split(void)
 {
-	char str[] = "banana.morango.laranja";
+
+	// Word . word . word
+	char str[] = "apple.berry.orange";
 	char **result;
 
 	result = ft_split(str, '.');
 	printf("Result[0]: %s\n", result[0]);
 	printf("Result[1]: %s\n", result[1]);
 	printf("Result[2]: %s\n", result[2]);
-}
+
+    for (int i = 0; result[i] != NULL; i++) {
+        free(result[i]);  // Free each token
+    }
+    free(result);
+
+	// . word . word .
+	char str2[] = ".banana.morango.laranja.";
+	char **result2;
+
+	result2 = ft_split(str2, '.');
+	printf("Result[0]: %s\n", result2[0]);
+	printf("Result[1]: %s\n", result2[1]);
+	printf("Result[2]: %s\n", result2[2]);
+    
+	for (int i = 0; result2[i] != NULL; i++) {
+        free(result2[i]);  
+    }
+    free(result2);
+
+	//. word . word . word
+	char str3[] = ".platano.fresa.naranja";
+	char **result3;
+
+	result3 = ft_split(str3, '.');
+	printf("Result[0]: %s\n", result3[0]);
+	printf("Result[1]: %s\n", result3[1]);
+	printf("Result[2]: %s\n", result3[2]);
+    
+	for (int i = 0; result3[i] != NULL; i++) {
+        free(result3[i]);
+    }
+    free(result3);
+
+	// No delimiter found
+	char str4[] = "pato.porco.vaca";
+	char **result4;
+
+	result4 = ft_split(str4, 'x');
+	printf("Result[0]: %s\n", result4[0]);
+	free(result4[0]);
+	free(result4);
+	}
 
 
 int	main(void)
