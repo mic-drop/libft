@@ -665,7 +665,7 @@
 	printf("%s\n", ft_strtrim("12ola12", "12"));
 } */
 
-void	test_ft_split(void)
+/* void	test_ft_split(void)
 {
 
 	// Word . word . word
@@ -718,7 +718,15 @@ void	test_ft_split(void)
 	printf("Result[0]: %s\n", result4[0]);
 	free(result4[0]);
 	free(result4);
-	}
+} */
+
+void	test_ft_itoa(void)
+{
+	int positive = 123;
+	printf("%s\n", ft_itoa(positive));
+
+
+}
 
 
 int	main(void)
@@ -749,7 +757,8 @@ int	main(void)
 	//test_ft_substr();
 	//test_ft_join();
 	//test_ft_strtrim();
-	test_ft_split();
+	//test_ft_split();
+	test_ft_itoa();
 
 	return (0);
 }
