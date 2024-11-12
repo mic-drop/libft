@@ -660,10 +660,22 @@
 	printf("%s\n", str);
 } */
 
-void test_ft_strtrim(void)
+/* void test_ft_strtrim(void)
 {
 	printf("%s\n", ft_strtrim("12ola12", "12"));
+} */
+
+void	test_ft_split(void)
+{
+	char str[] = "banana.morango.laranja";
+	char **result;
+
+	result = ft_split(str, '.');
+	printf("Result[0]: %s\n", result[0]);
+	printf("Result[1]: %s\n", result[1]);
+	printf("Result[2]: %s\n", result[2]);
 }
+
 
 int	main(void)
 {
@@ -692,7 +704,8 @@ int	main(void)
 	//test_ft_strdup();
 	//test_ft_substr();
 	//test_ft_join();
-	test_ft_strtrim();
+	//test_ft_strtrim();
+	test_ft_split();
 
 	return (0);
 }

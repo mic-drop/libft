@@ -26,11 +26,9 @@ char *ft_strtrim(char const *s1, char const *set)
     while(is_set(s1[start], set)){
         start++;
     }
-    printf("start -> %d\n", start);
     while (is_set(s1[end -1], set))
     {
         end--;
     }
-    printf("end -> %d\n", end);
     return (ft_substr(s1,  start, (ft_strlen(s1) - end + 1)));
 }
