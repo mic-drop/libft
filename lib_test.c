@@ -725,6 +725,16 @@ void	test_ft_itoa(void)
 	int positive = 123;
 	printf("%s\n", ft_itoa(positive));
 
+	int negative = -123;
+	printf("%s\n", ft_itoa(negative));
+	
+	int zero = 0;
+	printf("%s\n", ft_itoa(zero));
+
+	
+	printf("%s\n", ft_itoa(-2147483647));
+
+	printf("%s\n", ft_itoa(-2147483648));
 
 }
 
