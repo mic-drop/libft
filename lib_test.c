@@ -768,7 +768,7 @@
 	printf("New str\t: %s\n", ft_strmapi(str, strmapi_aux));
 } */
 
-void striteri_aux(unsigned int n, char *c)
+/* void striteri_aux(unsigned int n, char *c)
 {
 	*c = *c - 32;
 }
@@ -781,6 +781,12 @@ void test_striteri(void)
 	ft_striteri(str, striteri_aux);
 	printf("OG str\t: %s\n", str);
 
+} */
+
+void test_putchar_fd(void)
+{
+	ft_putchar_fd('a', 1);
+	printf("\n");
 }
 
 int	main(void)
@@ -815,7 +821,8 @@ int	main(void)
 	//test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
-	test_striteri();
+	//test_striteri();
+	test_putchar_fd();
 
 	return (0);
 }
