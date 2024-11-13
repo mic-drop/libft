@@ -796,11 +796,18 @@ void test_striteri(void)
 	printf("\n");
 } */
 
-void test_putendl_fd(void)
+/* void test_putendl_fd(void)
 {
 	ft_putendl_fd("batata", 1);
-}
+} */
 
+void test_putnbr_fd()
+{
+	int nb;
+	nb = -2147483648;
+	
+	ft_putnbr_fd(nb, 1);
+}
 
 int	main(void)
 {
@@ -837,7 +844,8 @@ int	main(void)
 	//test_striteri();
 	//test_putchar_fd();
 	//test_putstr_fd();
-	test_putendl_fd();
+	//test_putendl_fd();
+	test_putnbr_fd();
 
 	return (0);
 }
