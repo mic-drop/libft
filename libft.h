@@ -24,6 +24,7 @@ char    *ft_strnstr(const char *s, const char *find, size_t slen);
 size_t ft_strlcat(char *dest, const char *src, size_t size);
 int ft_atoi(const char *str);
 char *ft_strdup(const char *string);
+void *ft_calloc(size_t nitems, size_t size);
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_strjoin(char const *s1, char const *s2);
 char *ft_strtrim(char const *s1, char const *set);

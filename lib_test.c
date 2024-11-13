@@ -720,7 +720,7 @@
 	free(result4);
 } */
 
-void	test_ft_itoa(void)
+/* void	test_ft_itoa(void)
 {
 	int positive = 123;
 	printf("%s\n", ft_itoa(positive));
@@ -736,8 +736,25 @@ void	test_ft_itoa(void)
 
 	printf("%s\n", ft_itoa(-2147483648));
 
-}
+} */
 
+void	test_ft_calloc(void){
+
+	int *test_arr;
+	int *result_arr;
+	int n;
+
+	n = 5;
+
+	test_arr = calloc(n, sizeof(int));
+	result_arr = ft_calloc(n, sizeof(int));
+
+	for (size_t i = 0; i < n; i++)
+	{
+		printf("result_arr[%zu] expected: %d, got %d\n", i, test_arr[i], result_arr[i]);
+	}
+
+}
 
 int	main(void)
 {
@@ -768,7 +785,8 @@ int	main(void)
 	//test_ft_join();
 	//test_ft_strtrim();
 	//test_ft_split();
-	test_ft_itoa();
+	//test_ft_itoa();
+	test_ft_calloc();
 
 	return (0);
 }
