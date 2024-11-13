@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-int is_set(char c, const char *set)
+static int is_set(char c, const char *set)
 {
     while (*set)
     {

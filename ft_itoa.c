@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int ft_intlen(int n)
+static int ft_intlen(int n)
 {
     int len;
 

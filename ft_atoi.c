@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int get_digit(char c)
+static int get_digit(char c)
 {
     return (c - 48);
 }
