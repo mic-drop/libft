@@ -783,9 +783,16 @@ void test_striteri(void)
 
 } */
 
-void test_putchar_fd(void)
+/* void test_putchar_fd(void)
 {
 	ft_putchar_fd('a', 1);
+	printf("\n");
+} */
+
+
+void test_putstr_fd(void)
+{
+	ft_putstr_fd("banana", 1);
 	printf("\n");
 }
 
@@ -822,7 +829,8 @@ int	main(void)
 	//test_ft_calloc();
 	//test_ft_strmapi();
 	//test_striteri();
-	test_putchar_fd();
+	//test_putchar_fd();
+	test_putstr_fd();
 
 	return (0);
 }
