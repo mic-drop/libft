@@ -756,19 +756,32 @@
 
 } */
 
-
-char strmapi_aux(unsigned int n, char c)
+/* char strmapi_aux(unsigned int n, char c)
 {
 	return (c - 32);
-}
+} */
 
-void test_ft_strmapi(void)
+/* void test_ft_strmapi(void)
 {
 	char *str = "abcdef";
 	printf("OG str\t: %s\n", str);
 	printf("New str\t: %s\n", ft_strmapi(str, strmapi_aux));
+} */
+
+void striteri_aux(unsigned int n, char *c)
+{
+	*c = *c - 32;
 }
 
+void test_striteri(void)
+{
+	char str[] = "ola";
+
+	printf("OG str\t: %s\n", str);
+	ft_striteri(str, striteri_aux);
+	printf("OG str\t: %s\n", str);
+
+}
 
 int	main(void)
 {
@@ -801,7 +814,8 @@ int	main(void)
 	//test_ft_split();
 	//test_ft_itoa();
 	//test_ft_calloc();
-	test_ft_strmapi();
+	//test_ft_strmapi();
+	test_striteri();
 
 	return (0);
 }
