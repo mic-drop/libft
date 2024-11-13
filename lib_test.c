@@ -738,7 +738,7 @@
 
 } */
 
-void	test_ft_calloc(void){
+/* void	test_ft_calloc(void){
 
 	int *test_arr;
 	int *result_arr;
@@ -754,7 +754,21 @@ void	test_ft_calloc(void){
 		printf("result_arr[%zu] expected: %d, got %d\n", i, test_arr[i], result_arr[i]);
 	}
 
+} */
+
+
+char strmapi_aux(unsigned int n, char c)
+{
+	return (c - 32);
 }
+
+void test_ft_strmapi(void)
+{
+	char *str = "abcdef";
+	printf("OG str\t: %s\n", str);
+	printf("New str\t: %s\n", ft_strmapi(str, strmapi_aux));
+}
+
 
 int	main(void)
 {
@@ -786,7 +800,8 @@ int	main(void)
 	//test_ft_strtrim();
 	//test_ft_split();
 	//test_ft_itoa();
-	test_ft_calloc();
+	//test_ft_calloc();
+	test_ft_strmapi();
 
 	return (0);
 }
