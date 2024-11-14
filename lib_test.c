@@ -720,7 +720,7 @@
 	free(result4);
 } */
 
-/* void	test_ft_itoa(void)
+void	test_ft_itoa(void)
 {
 	int positive = 123;
 	printf("%s\n", ft_itoa(positive));
@@ -736,7 +736,7 @@
 
 	printf("%s\n", ft_itoa(-2147483648));
 
-} */
+}
 
 /* void	test_ft_calloc(void){
 
@@ -801,13 +801,13 @@ void test_striteri(void)
 	ft_putendl_fd("batata", 1);
 } */
 
-void test_putnbr_fd()
+/* void test_putnbr_fd()
 {
 	int nb;
 	nb = -2147483648;
 	
 	ft_putnbr_fd(nb, 1);
-}
+} */
 
 int	main(void)
 {
@@ -838,14 +838,14 @@ int	main(void)
 	//test_ft_join();
 	//test_ft_strtrim();
 	//test_ft_split();
-	//test_ft_itoa();
+	test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
 	//test_striteri();
 	//test_putchar_fd();
 	//test_putstr_fd();
 	//test_putendl_fd();
-	test_putnbr_fd();
+	//test_putnbr_fd();
 
 	return (0);
 }

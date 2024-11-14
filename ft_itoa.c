@@ -1,61 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
+/*   Updated: 2024/11/14 15:04:40 by mserra-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
-#include "libft.h"
 
-static int ft_intlen(int n)
+static int	ft_intlen(int n)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    if(n == 0)
-        return 1;
-    if(n < 0)
-        n = n * -1;
-    while(n > 0)
-    {
-        n = n / 10;
-        len++;
-    }
-    return len;
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		len++;
+	while (n != 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
-
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int len;
-    char *str;
-    int index;
-    unsigned int numb;
+	int				len;
+	char			*str;
+	unsigned int	numb;
 
-    index = 0;
-    len = ft_intlen(n);
-
-    if(n < 0)
-        len++;
-    str = malloc(sizeof(char) * (len + 1));
-    str[len] = '\0';
-    len--;
-    if(n == 0)
-    {
-        str[index] = '0';
-        return str;
-    }
-    if(n < 0)
-    {
-        numb = -n;
-        str[index] = '-';
-        if(numb == 2147483648)
-        {
-            ft_memmove(str+1, "2147483648", 10);
-            return str;
-        }
-    } else {
-        numb = n;
-    }
-    while(numb > 0)
-    {
-        str[len] = (numb % 10) + 48 ;
-        numb = numb / 10;
-        len--;
-    }
-    return str;
+	len = ft_intlen(n);
+	str = malloc(sizeof(char) * (len + 1));
+	if(!str)
+		return (NULL);
+	str[len--] = '\0';
+	if (n == 0)
+		str[0] = '0';
+	if (n < 0)
+	{
+		numb = -(unsigned int)n;
+		str[0] = '-';
+	}
+	else
+		numb = (unsigned int)n;
+	while (numb > 0)
+	{
+		str[len--] = (numb % 10) + 48;
+		numb = numb / 10;
+	}
+	return (str);
 }
