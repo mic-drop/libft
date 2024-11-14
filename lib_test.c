@@ -430,7 +430,7 @@
 
 } */
 
-/* void	test_ft_memmove(void)
+void	test_ft_memmove(void)
 {
 	char test_dest_str[] = "oldstring";
 	char result_dest_str[] = "oldstring";
@@ -440,7 +440,7 @@
 	printf("Test\t should output |nldstring|: %s\n", test_dest_str);
 
 	ft_memmove(result_dest_str, src_str, 1);
-	printf("Test\t should output |nldstring|: %s\n", result_dest_str);
+	printf("Result\t should output |nldstring|: %s\n", result_dest_str);
 
 	//N bigger than source
 	char *bad_src = "alo";
@@ -458,7 +458,7 @@
 
 	ft_memmove(str_result + 6, str_result, 6);
 	printf("%s\n", str_result);
-} */
+}
 
 /* void test_ft_strlcpy(void){
 
@@ -720,7 +720,7 @@
 	free(result4);
 } */
 
-void	test_ft_itoa(void)
+/* void	test_ft_itoa(void)
 {
 	int positive = 123;
 	printf("%s\n", ft_itoa(positive));
@@ -736,7 +736,7 @@ void	test_ft_itoa(void)
 
 	printf("%s\n", ft_itoa(-2147483648));
 
-}
+} */
 
 /* void	test_ft_calloc(void){
 
@@ -828,7 +828,7 @@ int	main(void)
 	//test_ft_memchr();
 	//test_ft_memcpy();
 	//test_ft_memcmp();
-	//test_ft_memmove();
+	test_ft_memmove();
 	//test_ft_strlcpy();
 	//test_ft_strnstr();
 	//test_ft_strlcat();
@@ -838,7 +838,7 @@ int	main(void)
 	//test_ft_join();
 	//test_ft_strtrim();
 	//test_ft_split();
-	test_ft_itoa();
+	//test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
 	//test_striteri();
