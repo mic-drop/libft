@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/18 14:58:51 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:39:24 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dest_str, const void *src_str, size_t n)
 	char	*dest_ptr;
 
 	i = 0;
-	src_ptr = (char *)src_str; //char is used, instead of unsigned char, because no comparsion with int is being made
+	src_ptr = (char *)src_str;
 	dest_ptr = (char *)dest_str;
 	while (i < n)
 	{

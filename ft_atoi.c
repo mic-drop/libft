@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/18 12:26:25 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/16 17:06:02 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	neg = 1;
-	while (str[i] && ft_isspace((unsigned char)str[i]))// If str[i] has non ascii value, it wraps around (due to overflow), resulting in a negative value: 227−256=−29
-														// Later, if I do str[i] + non ascii value, it will result in weird behaviour
+	while (str[i] && ft_isspace((unsigned char)str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

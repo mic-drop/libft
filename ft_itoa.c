@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/18 14:02:15 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:07:24 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_itoa(int n)
 		str[0] = '0';
 	if (n < 0)
 	{
-		numb = -(unsigned int)n;//If n was -2147483648, it couldnt be the positive 2147483648
+		numb = -(unsigned int)n;
 		str[0] = '-';
 	}
 	else

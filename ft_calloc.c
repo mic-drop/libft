@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/18 13:53:10 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/16 17:16:33 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nitems, size_t size)
 	void	*ptr;
 	size_t	total_size;
 
-	if (nitems != 0 && size > __SIZE_MAX__ / nitems) //To ensure that nitems * size doensn't go beyond __SIZE_MAX__ (line 24)
+	if (nitems != 0 && size > __SIZE_MAX__ / nitems)
 		return (NULL);
 	total_size = nitems * size;
 	ptr = malloc(total_size);
