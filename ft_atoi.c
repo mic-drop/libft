@@ -1,41 +1,43 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
+/*   Updated: 2024/11/18 12:26:25 by mserra-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int get_digit(char c)
+static int	ft_isspace(int c)
 {
-    return (c - 48);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r');
 }
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-    int i;
-    int nb;
-    int neg;
+	int	i;
+	int	nb;
+	int	neg;
 
-    i = 0;
-    nb = 0;
-    neg = 1;
-    while(str[i])
-    {
-        while(str[i] == ' ')
-            i++;
-        if(str[i] == '-' || str[i] == '+') {
-            if(ft_isdigit(str[i + 1]) == 0){
-                return 0;
-            }
-            if (str[i] == '-')
-            {
-                neg = -1;
-            }
-            i++;
-        }
-        while(str[i] >= '0' && str[i] <= '9')
-        {
-            nb = (10 * nb)  + get_digit(str[i]);
-            i++;
-            if(ft_isdigit(str[i]) == 0)
-                return (neg * nb);
-        }
-        return (0);
-    }
-    return (0);
+	i = 0;
+	nb = 0;
+	neg = 1;
+	while (str[i] && ft_isspace((unsigned char)str[i]))// If str[i] has non ascii value, it wraps around (due to overflow), resulting in a negative value: 227−256=−29
+														// Later, if I do str[i] + non ascii value, it will result in weird behaviour
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (neg * nb);
 }

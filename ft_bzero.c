@@ -1,17 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
+/*   Updated: 2024/11/14 16:26:23 by mserra-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_bzero(void *s, size_t n) //Since its a void *, I cannot change values directly 
+void	ft_bzero(void *s, size_t n)
 {
-    int i;
-    i = 0;
+	size_t	i;
+	char	*ptr;
 
-    char *ptr;
-
-    ptr = (char *)s;
-
-    while(i < n)
-    {
-        ptr[i] = '\0';
-        i++;
-    };
+	i = 0;
+	ptr = (char *)s;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
 }

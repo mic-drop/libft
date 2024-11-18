@@ -245,13 +245,21 @@
 	printf("Test\t should return 1: %d\n", strncmp("Oi", "Oa", 2));
 	printf("Result\t should return 1: %d\n", ft_strncmp("Oi", "Oa", 2));
 
-	//testing empty string, should return 1
-	printf("Test\t should return 1: %d\n", strncmp("Oi", "", 4));
-	printf("Result\t should return 1: %d\n", ft_strncmp("Oi", "", 4));
+	//testing empty string, should return 0
+	printf("Test\t should return 0: %d\n", strncmp("Oi", "Oix", 0));
+	printf("Result\t should return 0: %d\n", ft_strncmp("Oi", "Oix", 0));
+
+
+	printf("Test\t should return -1: %d\n", strncmp("Oi", "OiX", 42));
+	printf("Result\t should return -1: %d\n", ft_strncmp("Oi", "OiX", 42));
+	
+	printf("Test\t should return -1: %d\n", strncmp("", "1", 1));
+	printf("Result\t should return -1: %d\n", ft_strncmp("", "1", 1));
 } */
 
 /* void test_ft_strchr(void)
 {
+	//Sunshine
 	char *str = "banana com banana";
 	char letter = 'a';
 	char *test;
@@ -262,6 +270,20 @@
 
 	result = ft_strchr(str, letter);
 	printf("Result\t should return anana com banana: %s\n", result);
+
+
+	//No letter found
+	char not_found = 'i';
+	char *test2;
+	char *result2;
+	test2 = strchr(str, 0);
+	printf("Test\t : %s\n", test2);
+
+	result2 = strchr(str, 0);
+	printf("Result\t : %s\n", result2);
+
+
+
 } */
 
 /* void test_ft_memset(void)
@@ -511,21 +533,26 @@
 	//Sunshine
 	char s1[] = "ola";
 	char dest[10] = "adeus";
-	printf("Test \t output should be 8 : %lu\n\tstring should be |adeusola| : |%s|\n", strlcat(dest, s1, 9), dest);
+	printf("Test \t output should be 8 : %d\n\tstring should be |adeusola| : |%s|\n", strlcat(dest, s1, 9), dest);
 	
 	char result_s1[] = "ola";
 	char result_dest[10] = "adeus";
-	printf("Result \t output should be 8 : %lu\n\tstring should be |adeusola| : |%s|\n", ft_strlcat(result_dest, result_s1, 9), result_dest);
+	printf("Result \t output should be 8 : %zu\n\tstring should be |adeusola| : |%s|\n", ft_strlcat(result_dest, result_s1, 9), result_dest);
 
 	//If dest size is smaller than full concatenation
 	char dest2[10] = "ananas";
 	char big_src[] = "banana";
 
-	printf("Test \t output should be 12 : %lu\n\tstring should be |ananas| : |%s|\n", strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
-	printf("Result \t output should be 12 : %lu\n\tstring should be |ananas| : |%s|\n", ft_strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
-	ft_strlcat(dest2, big_src, 10);
+	printf("Test \t output should be 12 : %d\n\tstring should be |ananas| : |%s|\n", strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
+	printf("Result \t output should be 12 : %zu\n\tstring should be |ananas| : |%s|\n", ft_strlcat(dest2, big_src, ft_strlen(big_src)), dest2);
 
-} */
+	//Transverse size without null
+	char dest3[10] = "bola";
+	char src3[] = "cola";
+
+	printf("Test \t output should be 4 : %d\n\tstring should be |bola| : |%s|\n", strlcat(dest3, src3, 3), dest3);
+	printf("Result \t output should be 4 : %zu\n\tstring should be |bola| : |%s|\n", ft_strlcat(dest3, src3, 3), dest3);
+}*/
 
 /* void	test_ft_atoi(void)
 {
@@ -649,11 +676,12 @@
 
 /* void test_ft_substr(void)
 {
-	char str[] = "Submarine";
-	printf("%s\n", ft_substr(str, 0, 3));
-	printf("%s\n", ft_substr(str, 4, 3));
-} */
+	// char str[] = "Submarine";
+	// printf("%s\n", ft_substr(str, 0, 3));
+	// printf("%s\n", ft_substr(str, 4, 3));
 
+	printf("%s\n", ft_substr("tripouille", 100, 1));
+} */
 
 /* void test_ft_join(void){
 	char *str = ft_strjoin("Banana", "morango");
@@ -665,7 +693,7 @@
 	printf("%s\n", ft_strtrim("12ola12", "12"));
 } */
 
-void	test_ft_split(void)
+/* void	test_ft_split(void)
 {
 
 	// Word . word . word
@@ -718,7 +746,7 @@ void	test_ft_split(void)
 	printf("Result[0]: %s\n", result4[0]);
 	free(result4[0]);
 	free(result4);
-}
+} */
 
 /* void	test_ft_itoa(void)
 {
@@ -801,13 +829,14 @@ void test_striteri(void)
 	ft_putendl_fd("batata", 1);
 } */
 
-/* void test_putnbr_fd()
+void test_putnbr_fd()
 {
 	int nb;
 	nb = -2147483648;
-	
-	ft_putnbr_fd(nb, 1);
-} */
+	//Nao posso usar o itoa pq so quero imprimir, n quero carregar na RAM
+	ft_putnbr_fd(-42, 1);
+	ft_putnbr_fd(0, 1);
+}
 
 int	main(void)
 {
@@ -837,7 +866,7 @@ int	main(void)
 	//test_ft_substr();
 	//test_ft_join();
 	//test_ft_strtrim();
-	test_ft_split();
+	//test_ft_split();
 	//test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
@@ -845,7 +874,7 @@ int	main(void)
 	//test_putchar_fd();
 	//test_putstr_fd();
 	//test_putendl_fd();
-	//test_putnbr_fd();
+	test_putnbr_fd();
 
 	return (0);
 }
