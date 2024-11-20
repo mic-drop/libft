@@ -554,7 +554,7 @@
 	printf("Result \t output should be 4 : %zu\n\tstring should be |bola| : |%s|\n", ft_strlcat(dest3, src3, 3), dest3);
 }*/
 
-/* void	test_ft_atoi(void)
+void	test_ft_atoi(void)
 {
 	//Sunshine
 	char test_str[] = "2147483647";
@@ -642,7 +642,12 @@
 	printf("Test\t should be 12 : %d\n", test);
 	printf("Result\t should be 12 : %d\n", result);
 
-} */
+
+	printf("Test\t should be -1 : %d\n", atoi("1111111111111111111111111111111111"));
+	printf("Result\t should be -1 : %d\n", ft_atoi("1111111111111111111111111111111111"));
+
+
+}
 
 /* void test_ft_strdup(void)
 {
@@ -688,12 +693,14 @@
 	printf("%s\n", str);
 } */
 
-/* void test_ft_strtrim(void)
+void test_ft_strtrim(void)
 {
 	printf("%s\n", ft_strtrim("12ola12", "12"));
-} */
+	printf("%s\n", ft_strtrim("ola12", "12"));
+	printf("%s\n", ft_strtrim("12ola", "12"));
+}
 
-/* void	test_ft_split(void)
+void	test_ft_split(void)
 {
 
 	// Word . word . word
@@ -746,7 +753,7 @@
 	printf("Result[0]: %s\n", result4[0]);
 	free(result4[0]);
 	free(result4);
-} */
+}
 
 /* void	test_ft_itoa(void)
 {
@@ -831,11 +838,14 @@ void test_striteri(void)
 
 void test_putnbr_fd()
 {
-	int nb;
-	nb = -2147483648;
 	//Nao posso usar o itoa pq so quero imprimir, n quero carregar na RAM
 	ft_putnbr_fd(-42, 1);
+	printf("\n");
 	ft_putnbr_fd(0, 1);
+	printf("\n");
+	ft_putnbr_fd(-2147483648, 1);
+	printf("\n");
+	ft_putnbr_fd(2147483647, 1);
 }
 
 int	main(void)
@@ -861,12 +871,15 @@ int	main(void)
 	//test_ft_strlcpy();
 	//test_ft_strnstr();
 	//test_ft_strlcat();
-	//test_ft_atoi();
+	test_ft_atoi();
+	printf("\n");
 	//test_ft_strdup();
 	//test_ft_substr();
 	//test_ft_join();
-	//test_ft_strtrim();
-	//test_ft_split();
+	test_ft_strtrim();
+	printf("\n");
+	test_ft_split();
+	printf("\n");
 	//test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
