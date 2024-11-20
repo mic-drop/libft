@@ -509,6 +509,30 @@
 
 } */
 
+#include <stdio.h>
+#include <stddef.h>  // for size_t
+
+// Define strnstr if it's not available
+char *strnstr(const char *haystack, const char *needle, size_t len) {
+    size_t i, j;
+
+    if (*needle == '\0') {
+        return (char *)haystack;  // if needle is empty, return haystack
+    }
+
+    for (i = 0; i < len && haystack[i] != '\0'; i++) {
+        for (j = 0; needle[j] != '\0' && (i + j) < len; j++) {
+            if (haystack[i + j] != needle[j]) {
+                break;
+            }
+        }
+        if (needle[j] == '\0') {
+            return (char *)&haystack[i];  // return the position in haystack where needle is found
+        }
+    }
+    return NULL;  // if not found
+}
+
 #include <string.h>
 void	test_ft_strnstr(void){
 	char str[] = "bananai";
@@ -516,7 +540,7 @@ void	test_ft_strnstr(void){
 
 	//Sunshine
 	printf("Test\t output:%s\n", strnstr(str, find, 10));
-/* 	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
+	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
 
 	//Not found
 	char notfound[] = "coco";
@@ -526,7 +550,7 @@ void	test_ft_strnstr(void){
 
 	//Empty String
 	printf("Test\t output:%s\n", strnstr(str, "", 10));
-	printf("Result\t output:%s\n", ft_strnstr(str, "", 10)); */
+	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
 }
 
 /* void	test_ft_strlcat(void)
