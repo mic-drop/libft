@@ -509,13 +509,14 @@
 
 } */
 
-/* void	test_ft_strnstr(void){
+#include <string.h>
+void	test_ft_strnstr(void){
 	char str[] = "bananai";
 	char find[] = "nan";
 
 	//Sunshine
 	printf("Test\t output:%s\n", strnstr(str, find, 10));
-	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
+/* 	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
 
 	//Not found
 	char notfound[] = "coco";
@@ -525,8 +526,8 @@
 
 	//Empty String
 	printf("Test\t output:%s\n", strnstr(str, "", 10));
-	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
-} */
+	printf("Result\t output:%s\n", ft_strnstr(str, "", 10)); */
+}
 
 /* void	test_ft_strlcat(void)
 {
@@ -554,7 +555,7 @@
 	printf("Result \t output should be 4 : %zu\n\tstring should be |bola| : |%s|\n", ft_strlcat(dest3, src3, 3), dest3);
 }*/
 
-void	test_ft_atoi(void)
+/* void	test_ft_atoi(void)
 {
 	//Sunshine
 	char test_str[] = "2147483647";
@@ -646,8 +647,10 @@ void	test_ft_atoi(void)
 	printf("Test\t should be -1 : %d\n", atoi("1111111111111111111111111111111111"));
 	printf("Result\t should be -1 : %d\n", ft_atoi("1111111111111111111111111111111111"));
 
+	printf("Test\t should be -1 : %d\n", atoi("+0000000000000000000000000000000000000000000000000000123"));
+	printf("Result\t should be -1 : %d\n", ft_atoi("+0000000000000000000000000000000000000000000000000000123"));
 
-}
+} */
 
 /* void test_ft_strdup(void)
 {
@@ -693,14 +696,14 @@ void	test_ft_atoi(void)
 	printf("%s\n", str);
 } */
 
-void test_ft_strtrim(void)
+/* void test_ft_strtrim(void)
 {
 	printf("%s\n", ft_strtrim("12ola12", "12"));
 	printf("%s\n", ft_strtrim("ola12", "12"));
 	printf("%s\n", ft_strtrim("12ola", "12"));
-}
+} */
 
-void	test_ft_split(void)
+/* void	test_ft_split(void)
 {
 
 	// Word . word . word
@@ -753,7 +756,7 @@ void	test_ft_split(void)
 	printf("Result[0]: %s\n", result4[0]);
 	free(result4[0]);
 	free(result4);
-}
+} */
 
 /* void	test_ft_itoa(void)
 {
@@ -836,7 +839,7 @@ void test_striteri(void)
 	ft_putendl_fd("batata", 1);
 } */
 
-void test_putnbr_fd()
+/* void test_putnbr_fd()
 {
 	//Nao posso usar o itoa pq so quero imprimir, n quero carregar na RAM
 	ft_putnbr_fd(-42, 1);
@@ -846,7 +849,7 @@ void test_putnbr_fd()
 	ft_putnbr_fd(-2147483648, 1);
 	printf("\n");
 	ft_putnbr_fd(2147483647, 1);
-}
+} */
 
 int	main(void)
 {
@@ -869,17 +872,14 @@ int	main(void)
 	//test_ft_memcmp();
 	//test_ft_memmove();
 	//test_ft_strlcpy();
-	//test_ft_strnstr();
+	test_ft_strnstr();
 	//test_ft_strlcat();
-	test_ft_atoi();
-	printf("\n");
+	// test_ft_atoi();
 	//test_ft_strdup();
 	//test_ft_substr();
 	//test_ft_join();
-	test_ft_strtrim();
-	printf("\n");
-	test_ft_split();
-	printf("\n");
+	// test_ft_strtrim();
+	// test_ft_split();
 	//test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
@@ -887,7 +887,7 @@ int	main(void)
 	//test_putchar_fd();
 	//test_putstr_fd();
 	//test_putendl_fd();
-	test_putnbr_fd();
+	// test_putnbr_fd();
 
 	return (0);
 }

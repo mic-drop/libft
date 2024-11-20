@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/14 16:15:18 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:49:41 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*s_copy;
 
 	s_copy = ft_strdup(s);
+	if (!s_copy)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{

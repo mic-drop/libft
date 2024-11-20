@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/18 17:36:43 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:05:06 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ static int	count_strs(const char *s, char c)
 	return (count);
 }
 
-/* static void	free_arr_elements(char **result)
+static char	**free_arr_elements(char **result)
 {
 	int	i;
 
 	i = 0;
-	while (!result[i])
-	{
-		free(result[i]);
-	}
-} */
+	while (result[i])
+		free(result[i++]);
+	free(result);
+	return (NULL);
+}
 
 static char	**get_strs(const char *s, char c, char **result)
 {
@@ -68,7 +68,7 @@ static char	**get_strs(const char *s, char c, char **result)
 				i++;
 			result[str_index] = ft_substr(s, start, i - start);
 			if (!result[str_index])
-				return (result);
+				return (free_arr_elements(result));
 			str_index++;
 		}
 		else
@@ -81,22 +81,10 @@ static char	**get_strs(const char *s, char c, char **result)
 char	**ft_split(const char *s, char c)
 {
 	char	**result;
-	int		i;
 
 	result = malloc((count_strs(s, c) + 1) * sizeof(char *));
 	if (!s || !result)
 		return (NULL);
 	result = get_strs(s, c, result);
-	i = 0;
-	while (i < (count_strs(s, c) + 1))
-	{
-		if (!result[i])
-			free(result[i]);
-		if(i == count_strs(s, c) + 1)
-		{
-			free(result);
-		}
-		i++;
-	}
-	return result;
+	return (result);
 }

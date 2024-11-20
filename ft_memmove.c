@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/14 15:17:39 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:52:33 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	*ft_memmove(void *dest_str, const void *src_str, size_t numBytes)
 			ptr_dest[i] = ptr_src[i];
 			i++;
 		}
+		return (ptr_dest);
 	}
 	while (numBytes > 0)
 	{

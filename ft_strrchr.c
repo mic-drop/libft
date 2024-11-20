@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/16 16:08:31 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:46:36 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	if (result != NULL)
 		return (result);
-	if (c == '\0')
+	if ((char)c == '\0')
 		return ((char *)str);
 	return (NULL);
 }

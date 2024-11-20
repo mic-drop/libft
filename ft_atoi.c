@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/16 17:06:02 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:45:22 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	nb;
 	int	neg;
+	int	spaces;
 
 	i = 0;
 	nb = 0;
@@ -33,10 +34,13 @@ int	ft_atoi(const char *str)
 			neg = -1;
 		i++;
 	}
+	spaces = i;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
+		if (i - spaces > 10)
+			return (-1);
 	}
 	return (neg * nb);
 }
