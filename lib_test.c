@@ -392,11 +392,17 @@
 
 	//What if size bbigger than src?
 	//Switch order to show same overflow
-	memcpy(dest_test, src, 20);
-	printf("Test\t after memcpy dest = %s\n", dest_test);
 
- 	memcpy(dest_result, src, 20);
-	printf("Result\t after memcpy dest = %s\n", dest_result);
+	// memcpy(dest_result, src, 20);
+	// printf("Result\t after memcpy dest = %s\n", dest_result);
+
+	// memcpy(dest_test, src, 20);
+	// printf("Test\t after memcpy dest = %s\n", dest_test);
+
+	//When src and dest are NULL, but size isnt
+	//Both functions give segmentation fault
+	//memcpy(((void*)0), ((void*)0), 3);
+	//ft_memcpy(((void*)1), ((void*)0), 3);
 
 } */
 
@@ -509,32 +515,7 @@
 
 } */
 
-#include <stdio.h>
-#include <stddef.h>  // for size_t
-
-// Define strnstr if it's not available
-char *strnstr(const char *haystack, const char *needle, size_t len) {
-    size_t i, j;
-
-    if (*needle == '\0') {
-        return (char *)haystack;  // if needle is empty, return haystack
-    }
-
-    for (i = 0; i < len && haystack[i] != '\0'; i++) {
-        for (j = 0; needle[j] != '\0' && (i + j) < len; j++) {
-            if (haystack[i + j] != needle[j]) {
-                break;
-            }
-        }
-        if (needle[j] == '\0') {
-            return (char *)&haystack[i];  // return the position in haystack where needle is found
-        }
-    }
-    return NULL;  // if not found
-}
-
-#include <string.h>
-void	test_ft_strnstr(void){
+/* void	test_ft_strnstr(void){
 	char str[] = "bananai";
 	char find[] = "nan";
 
@@ -551,7 +532,7 @@ void	test_ft_strnstr(void){
 	//Empty String
 	printf("Test\t output:%s\n", strnstr(str, "", 10));
 	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
-}
+} */
 
 /* void	test_ft_strlcat(void)
 {
@@ -579,9 +560,9 @@ void	test_ft_strnstr(void){
 	printf("Result \t output should be 4 : %zu\n\tstring should be |bola| : |%s|\n", ft_strlcat(dest3, src3, 3), dest3);
 }*/
 
-/* void	test_ft_atoi(void)
+void	test_ft_atoi(void)
 {
-	//Sunshine
+	// //Sunshine
 	char test_str[] = "2147483647";
 	int test;
 	int result;
@@ -591,7 +572,7 @@ void	test_ft_strnstr(void){
 	printf("Test\t should be 2147483647 : %d\n", test);
 	printf("Result\t should be 2147483647 : %d\n", result);
 
-	//Plus
+	// //Plus
 	char plus[] = "+777";
 	
 	test = atoi(plus);
@@ -607,6 +588,10 @@ void	test_ft_strnstr(void){
 	printf("Test\t should be 0 : %d\n", test);
 	printf("Result\t should be 0 : %d\n", result);
 
+	//Double positivie
+	printf("Test\t should return 0: %d\n", atoi("++123"));
+	printf("Result\t should return 0: %d\n", ft_atoi("++123"));
+
 	// One negative
 	char negative[] = "-12345";
 
@@ -615,7 +600,7 @@ void	test_ft_strnstr(void){
 	printf("Test\t should be -12345 : %d\n", test);
 	printf("Result\t should be -12345 : %d\n", result);
 
-	//Plus Minus
+	// //Plus Minus
 	char plus_minus[] = "+-12345";
 
 	test = atoi(plus_minus);
@@ -631,35 +616,35 @@ void	test_ft_strnstr(void){
 	printf("Test\t should be 1 : %d\n", test);
 	printf("Result\t should be 1 : %d\n", result);
 
-	//With nont allowed chars
+	// //With nont allowed chars
 	char not_allowed[] = " !a";
 	test = atoi(not_allowed);
 	result= ft_atoi(not_allowed);
 	printf("Test\t should be 0 : %d\n", test);
 	printf("Result\t should be 0 : %d\n", result);
 
-	//Biggest negative int
+	// //Biggest negative int
 	char big_negative[] = "–2147483648";
 	test = atoi(big_negative);
 	result= ft_atoi(big_negative);
 	printf("Test\t should be 0 : %d\n", test);
 	printf("Result\t should be 0 : %d\n", result);
 
-	//Biggest Positive int
+	// //Biggest Positive int
 	char big_pos[] = "2147483648";
 	test = atoi(big_pos);
 	result= ft_atoi(big_pos);
 	printf("Test\t should be -2147483648 : %d\n", test);
 	printf("Result\t should be -2147483648 : %d\n", result);
 	
-	//Seccond biggest bneg int
+	// //Seccond biggest bneg int
 	char sec_neg[] = "-2147483647";
 	test = atoi(sec_neg);
 	result= ft_atoi(sec_neg);
 	printf("Test\t should be -2147483647 : %d\n", test);
 	printf("Result\t should be -2147483647 : %d\n", result);
 
-	//Split numbers
+	// //Split numbers
 	char split_numb[] = " 12a2";
 
 	test = atoi(split_numb);
@@ -667,14 +652,31 @@ void	test_ft_strnstr(void){
 	printf("Test\t should be 12 : %d\n", test);
 	printf("Result\t should be 12 : %d\n", result);
 
+	//Valid big number
+	printf("Test\t should be 1111111111 : %d\n", atoi("1111111111"));
+	printf("Result\t should be 1111111111 : %d\n", ft_atoi("1111111111"));
 
+	//Int in string is bigger than max int digits
 	printf("Test\t should be -1 : %d\n", atoi("1111111111111111111111111111111111"));
 	printf("Result\t should be -1 : %d\n", ft_atoi("1111111111111111111111111111111111"));
 
-	printf("Test\t should be -1 : %d\n", atoi("+0000000000000000000000000000000000000000000000000000123"));
-	printf("Result\t should be -1 : %d\n", ft_atoi("+0000000000000000000000000000000000000000000000000000123"));
+	//Number starting with zero
+	printf("Test\t should be 123 : %d\n", atoi("00123"));
+	printf("Result\t should be 123 : %d\n", ft_atoi("00123"));
 
-} */
+	//Zero followed by space
+
+    printf("Test\t should be 0 : %d\n", atoi("0 49"));
+	printf("Result\t should be 0 : %d\n", ft_atoi("0 49"));
+
+	//+ Followed by zeroes
+	printf("Test\t should be 123 : %d\n", atoi("+0000000000000000000000000000000000000000000000000000123"));
+	printf("Result\t should be 123 : %d\n", ft_atoi("+0000000000000000000000000000000000000000000000000000123"));
+	
+	//- Followed by zeroes
+	printf("Test\t should be 123 : %d\n", atoi("+0000000000000000000000000000000000000000000000000000123"));
+	printf("Result\t should be 123 : %d\n", ft_atoi("+0000000000000000000000000000000000000000000000000000123"));
+}
 
 /* void test_ft_strdup(void)
 {
@@ -896,14 +898,14 @@ int	main(void)
 	//test_ft_memcmp();
 	//test_ft_memmove();
 	//test_ft_strlcpy();
-	test_ft_strnstr();
+	//test_ft_strnstr();
 	//test_ft_strlcat();
-	// test_ft_atoi();
+	test_ft_atoi();
 	//test_ft_strdup();
 	//test_ft_substr();
 	//test_ft_join();
-	// test_ft_strtrim();
-	// test_ft_split();
+	//test_ft_strtrim();
+	//test_ft_split();
 	//test_ft_itoa();
 	//test_ft_calloc();
 	//test_ft_strmapi();
@@ -911,7 +913,7 @@ int	main(void)
 	//test_putchar_fd();
 	//test_putstr_fd();
 	//test_putendl_fd();
-	// test_putnbr_fd();
+	//test_putnbr_fd();
 
 	return (0);
 }

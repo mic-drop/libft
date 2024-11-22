@@ -6,9 +6,11 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/20 11:45:22 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:20:03 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 static int	ft_isspace(int c)
 {
@@ -30,15 +32,15 @@ int	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			neg = -1;
-		i++;
 	}
 	spaces = i;
+	while (str[spaces] == '0')
+		spaces++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
+		nb = nb * 10 + (str[i++] - '0');
 		if (i - spaces > 10)
 			return (-1);
 	}
