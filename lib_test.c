@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>
+#include <bsd/string.h> 
 #include <stdlib.h>
 
 
@@ -401,8 +401,8 @@
 
 	//When src and dest are NULL, but size isnt
 	//Both functions give segmentation fault
-	//memcpy(((void*)0), ((void*)0), 3);
-	//ft_memcpy(((void*)1), ((void*)0), 3);
+	memcpy(((void*)0), ((void*)0), 3);
+	ft_memcpy(((void*)0), ((void*)0), 3);
 
 } */
 
@@ -515,13 +515,13 @@
 
 } */
 
-/* void	test_ft_strnstr(void){
+void	test_ft_strnstr(void){
 	char str[] = "bananai";
 	char find[] = "nan";
-
+	// compile with this cc lib_test.c ft_strnstr.c ft_strlen.c -lbsd
 	//Sunshine
-	printf("Test\t output:%s\n", strnstr(str, find, 10));
-	printf("Result\t output:%s\n", ft_strnstr(str, find, 10));
+	printf("Test\t output should be nanai:%s\n", strnstr(str, find, 10));
+	printf("Result\t output should be nanai:%s\n", ft_strnstr(str, find, 10));
 
 	//Not found
 	char notfound[] = "coco";
@@ -532,7 +532,14 @@
 	//Empty String
 	printf("Test\t output:%s\n", strnstr(str, "", 10));
 	printf("Result\t output:%s\n", ft_strnstr(str, "", 10));
-} */
+
+	
+	printf("Test\t output:%s\n", strnstr("", "fake", 3));
+	printf("Result\t output:%s\n", ft_strnstr("", "fake", 3));
+	
+	printf("Test\t output:%s\n", strnstr((void *)0, "fake", 3));
+	printf("Result\t output:%s\n", ft_strnstr((void *)0, "fake", 3));
+}
 
 /* void	test_ft_strlcat(void)
 {
@@ -560,7 +567,7 @@
 	printf("Result \t output should be 4 : %zu\n\tstring should be |bola| : |%s|\n", ft_strlcat(dest3, src3, 3), dest3);
 }*/
 
-void	test_ft_atoi(void)
+/* void	test_ft_atoi(void)
 {
 	// //Sunshine
 	char test_str[] = "2147483647";
@@ -676,7 +683,7 @@ void	test_ft_atoi(void)
 	//- Followed by zeroes
 	printf("Test\t should be 123 : %d\n", atoi("+0000000000000000000000000000000000000000000000000000123"));
 	printf("Result\t should be 123 : %d\n", ft_atoi("+0000000000000000000000000000000000000000000000000000123"));
-}
+} */
 
 /* void test_ft_strdup(void)
 {
@@ -898,9 +905,9 @@ int	main(void)
 	//test_ft_memcmp();
 	//test_ft_memmove();
 	//test_ft_strlcpy();
-	//test_ft_strnstr();
+	test_ft_strnstr();
 	//test_ft_strlcat();
-	test_ft_atoi();
+	//test_ft_atoi();
 	//test_ft_strdup();
 	//test_ft_substr();
 	//test_ft_join();

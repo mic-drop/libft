@@ -6,7 +6,7 @@
 /*   By: mserra-p <mserra-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:10:54 by mserra-p          #+#    #+#             */
-/*   Updated: 2024/11/16 16:59:10 by mserra-p         ###   ########.fr       */
+/*   Updated: 2024/11/23 12:12:10 by mserra-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ char	*ft_strnstr(const char *s, const char *find, size_t slen)
 	size_t	i;
 	size_t	j;
 	size_t	find_len;
+	int		*segfault;
 
+	segfault = NULL;
+	if (!s)
+		*segfault = 42;
 	if (*find == '\0')
 		return ((char *)s);
 	find_len = ft_strlen(find);
